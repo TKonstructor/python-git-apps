@@ -49,7 +49,7 @@ button1 = tk.Button(
 )
 button1.pack(pady=10)
 # TODO 4. ラベル: 配列に追加された名前を表示する
-label2 = tk.Label(window, bg=fg_color, fg=bg_color, anchor=tk.NW)
+label2 = tk.Label(window, bg=fg_color, fg=bg_color, anchor=tk.NW, justify="left")
 label2.pack(pady=10)
 label2.config(width=20, height=10)
 # ↓↓↓ お約束のコード ↓↓↓
