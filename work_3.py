@@ -1,4 +1,5 @@
 from cgitb import text
+from os import replace, sep
 import tkinter as tk
 
 # ↓↓↓ お約束のコード ↓↓↓
@@ -25,21 +26,32 @@ Paiza ランダム選択 -> https://paiza.jp/works/python3/primer/beginner-pytho
 # 名簿リストの作成。ここに名前を追加していく
 name_list = []
 
+
 # TODO 5. ボタンを押すと名前を追加してラベルに表示する関数を作成
 # Pythonで改行する文字は→”\n” (“エミリー\nマック\nジョン\n”)
+def button1_action():
+    name_list.append(entry1.get())
+    added_name_list = "\n".join(name_list)
+    label2.config(text=added_name_list.rstrip())
+
 
 # TODO 1. ラベル: 名前を入力してください
-label1 = tk.Label(window, text="名前を入力", bg=bg_color, fg=fg_color)
+label1 = tk.Label(window, text="名前を入力してください", bg=bg_color, fg=fg_color)
 label1.pack(pady=10)
 
 # TODO 2. エントリー: 名前を入力するための入力フィールド
-entry1 = tk.Entry(window, bg=bg_color, fg=fg_color)
+entry1 = tk.Entry(window, bg=fg_color, fg=bg_color)
 entry1.pack(pady=10)
 
 # TODO 3. ボタン: ボタンを押すと配列に名前が追加される
-
+button1 = tk.Button(
+    window, text="追加", bg=fg_color, fg=bg_color, command=button1_action
+)
+button1.pack(pady=10)
 # TODO 4. ラベル: 配列に追加された名前を表示する
-
+label2 = tk.Label(window, bg=fg_color, fg=bg_color, anchor=tk.NW)
+label2.pack(pady=10)
+label2.config(width=20, height=10)
 # ↓↓↓ お約束のコード ↓↓↓
 window.mainloop()
 # ↑↑↑ お約束のコード ↑↑↑
